@@ -9,7 +9,7 @@
 
 	<test name="Automation" preserve-order="true" verbose="2">
 		<classes>
-			<class name="BranchManagement.CreateBranchWithAllDetails" />
+			<class name="BranchManagement.VerifyThatTenantAdminRedirectToBranchAdminPageAfterCreateNewBranch" />
 		</classes>
 	</test>
 

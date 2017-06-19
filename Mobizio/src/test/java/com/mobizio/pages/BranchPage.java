@@ -80,6 +80,9 @@ public class BranchPage extends BasePage {
 
 	@FindBy(xpath = "//*[@id='editBranchBtn']")
 	private WebElement editBranchBtn;
+
+	@FindBy(xpath = "//li[text()='Branches']")
+	private WebElement branchPage;
 	
 	
 	public BranchPage(WebDriver driver) {
@@ -165,6 +168,7 @@ public class BranchPage extends BasePage {
 	public void verifyCreatedBranchOnBranchPage(String expectedBranchName) {
 		String branch = branchListFirstEntryName.getText();
 		Assert.assertEquals(branch, expectedBranchName);
+		Assert.assertEquals(branchPage.getText(),"Branches");
 	}
 	
 	
