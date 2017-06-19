@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="Automation"
+           tests="1"
+           failures="0"
+           errors="0"
+           skipped="0"
+           time="94.502">
+  <properties />
+  
+  
+            <testcase name="VerifyThatTenantAdminRedirectToBranchAdminPageAfterCreateNewBranch" time="94.502" classname="BranchManagement.VerifyThatTenantAdminRedirectToBranchAdminPageAfterCreateNewBranch" />
+      
+</testsuite>
