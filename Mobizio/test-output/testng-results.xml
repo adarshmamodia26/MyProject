@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" total="1" passed="1">
+  <reporter-output>
+    <line>
+      <![CDATA[<r>Login with user name AutomationTenantAdmin and password adminm@1234]]>
+    </line>
+    <line>
+      <![CDATA[<r>verify user login succesfully]]>
+    </line>
+    <line>
+      <![CDATA[<r>Click on Hamburger Menu]]>
+    </line>
+    <line>
+      <![CDATA[<r>Click on Configuration Menu]]>
+    </line>
+    <line>
+      <![CDATA[<r>Click on Branches]]>
+    </line>
+    <line>
+      <![CDATA[<r>Click on NewBranch Button]]>
+    </line>
+    <line>
+      <![CDATA[<r>enter new branch details]]>
+    </line>
+    <line>
+      <![CDATA[<r>verify new branch]]>
+    </line>
+    <line>
+      <![CDATA[<r>get branch name]]>
+    </line>
+    <line>
+      <![CDATA[<r>search branch name]]>
+    </line>
+    <line>
+      <![CDATA[<r>click on searched branch name]]>
+    </line>
+    <line>
+      <![CDATA[<r>click on edit button]]>
+    </line>
+    <line>
+      <![CDATA[<r>edit all the details]]>
+    </line>
+    <line>
+      <![CDATA[<r>search new branch]]>
+    </line>
+    <line>
+      <![CDATA[<r>click on searched branch]]>
+    </line>
+    <line>
+      <![CDATA[<r>verify branch detail on branch page]]>
+    </line>
+    <line>
+      <![CDATA[<r>Logout from application]]>
+    </line>
+    <line>
+      <![CDATA[<r>verify logout successfully]]>
+    </line>
+  </reporter-output>
+  <suite name="Default suite" duration-ms="173176" started-at="2017-06-16T13:39:15Z" finished-at="2017-06-16T13:42:08Z">
+    <groups>
+    </groups>
+    <test name="Default test" duration-ms="173176" started-at="2017-06-16T13:39:15Z" finished-at="2017-06-16T13:42:08Z">
+      <class name="BranchManagement.EditBranchWithAllDetails">
+        <test-method status="PASS" signature="setUp()[pri:0, instance:BranchManagement.EditBranchWithAllDetails@76707e36]" name="setUp" is-config="true" duration-ms="19006" started-at="2017-06-16T19:09:15Z" finished-at="2017-06-16T19:09:34Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method status="PASS" signature="initiData()[pri:0, instance:BranchManagement.EditBranchWithAllDetails@76707e36]" name="initiData" is-config="true" duration-ms="140" started-at="2017-06-16T19:09:34Z" finished-at="2017-06-16T19:09:34Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- initiData -->
+        <test-method status="PASS" signature="editNewBranchWithAllDetails()[pri:0, instance:BranchManagement.EditBranchWithAllDetails@76707e36]" name="editNewBranchWithAllDetails" duration-ms="154007" started-at="2017-06-16T19:09:34Z" description="create new branch with all fields" finished-at="2017-06-16T19:12:08Z">
+          <reporter-output>
+            <line>
+              <![CDATA[<r>Login with user name AutomationTenantAdmin and password adminm@1234]]>
+            </line>
+            <line>
+              <![CDATA[<r>verify user login succesfully]]>
+            </line>
+            <line>
+              <![CDATA[<r>Click on Hamburger Menu]]>
+            </line>
+            <line>
+              <![CDATA[<r>Click on Configuration Menu]]>
+            </line>
+            <line>
+              <![CDATA[<r>Click on Branches]]>
+            </line>
+            <line>
+              <![CDATA[<r>Click on NewBranch Button]]>
+            </line>
+            <line>
+              <![CDATA[<r>enter new branch details]]>
+            </line>
+            <line>
+              <![CDATA[<r>verify new branch]]>
+            </line>
+            <line>
+              <![CDATA[<r>get branch name]]>
+            </line>
+            <line>
+              <![CDATA[<r>search branch name]]>
+            </line>
+            <line>
+              <![CDATA[<r>click on searched branch name]]>
+            </line>
+            <line>
+              <![CDATA[<r>click on edit button]]>
+            </line>
+            <line>
+              <![CDATA[<r>edit all the details]]>
+            </line>
+            <line>
+              <![CDATA[<r>search new branch]]>
+            </line>
+            <line>
+              <![CDATA[<r>click on searched branch]]>
+            </line>
+            <line>
+              <![CDATA[<r>verify branch detail on branch page]]>
+            </line>
+            <line>
+              <![CDATA[<r>Logout from application]]>
+            </line>
+            <line>
+              <![CDATA[<r>verify logout successfully]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- editNewBranchWithAllDetails -->
+        <test-method status="PASS" signature="afterMainMethod()[pri:0, instance:BranchManagement.EditBranchWithAllDetails@76707e36]" name="afterMainMethod" is-config="true" duration-ms="0" started-at="2017-06-16T19:12:08Z" finished-at="2017-06-16T19:12:08Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterMainMethod -->
+        <test-method status="PASS" signature="tearDownSuite()[pri:0, instance:BranchManagement.EditBranchWithAllDetails@76707e36]" name="tearDownSuite" is-config="true" duration-ms="0" started-at="2017-06-16T19:12:08Z" finished-at="2017-06-16T19:12:08Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDownSuite -->
+      </class> <!-- BranchManagement.EditBranchWithAllDetails -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
+</testng-results>

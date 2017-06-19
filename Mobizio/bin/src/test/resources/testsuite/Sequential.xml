@@ -1,0 +1,18 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Test Suite" verbose="10">
+
+	<listeners>
+		<listener class-name="com.mobizio.report.CustomReport" />
+		<listener class-name="com.mobizio.report.ExtentReporterNG" />
+		<listener class-name="org.uncommons.reportng.JUnitXMLReporter" />		
+	</listeners>
+
+	<test name="Login Logout" preserve-order="true" verbose="2">
+		<classes>
+			<class name="com.mobizio.testscript.LoginMobizio" />
+			<class name="com.mobizio.testscript.CreateNewCustomerWithMandatoryDetails" />
+			<class name="com.mobizio.testscript.CreateNewCustomerWithAllDetails" />
+		</classes>
+	</test>
+
+</suite>
