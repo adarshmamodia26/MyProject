@@ -1,12 +1,13 @@
 package com.mobizio.pages;
 
-import org.openqa.selenium.JavascriptExecutor;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
 
+import com.mobizio.constant.ValidationMessage.Validation;
 import com.mobizio.selenium.framework.BasePage;
 
 public class LoginPage extends BasePage {
@@ -36,8 +37,6 @@ public class LoginPage extends BasePage {
 	@FindBy(xpath = "//div[@class='form-group']/div")
 	private WebElement forgotPasswordMessage;
 	
-	
-	
 	/*
 	 * login into the application
 	 */
@@ -63,10 +62,10 @@ public class LoginPage extends BasePage {
 	/*
 	 * verify login failed after three wrong attempts
 	 */
-	public void verifyLoginFailed(String loginFailedText)
+	public void verifyLoginFailed()
 	{
 		waitForElement(loginFailedMessage);
-		Assert.assertEquals(loginFailedMessage.getText(), loginFailedText);
+		Assert.assertEquals(loginFailedMessage.getText(), Validation.LoginFailedMessage.toString());
 		Assert.assertTrue(isElementPresent(captcha), "Captcha not present");
 	}
 	

@@ -4,28 +4,29 @@
            failures="1"
            errors="0"
            skipped="0"
-           time="44.092">
+           time="91.968">
   <properties />
-            <testcase name="createNewBranchWithAllDetails" time="44.092" classname="BranchManagement.CreateBranchWithAllDetails">
+            <testcase name="createNewUserWithAllDetails" time="91.968" classname="UserManagement.CreateNewUserWithAllDetails">
                 <failure type="org.openqa.selenium.TimeoutException"
-                  message="Timed out after 30 seconds waiting for element to be clickable: Proxy element for: DefaultElementLocator &apos;By.xpath: //*[@id=&apos;nameValueInpu&apos;]&apos;
+                  message="Timed out after 30 seconds waiting for element to be clickable: Proxy element for: DefaultElementLocator &apos;By.xpath: //table[@id=&apos;user-table&apos;]/tbody/tr[1]//a&apos;
 Build info: version: &apos;2.53.1&apos;, revision: &apos;a36b8b1cd5757287168e54b817830adce9b0158d&apos;, time: &apos;2016-06-30 19:26:09&apos;
 System info: host: &apos;DESKTOP-ER1VHCV&apos;, ip: &apos;192.168.3.3&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;1.8.0_102&apos;
 Driver info: org.openqa.selenium.firefox.FirefoxDriver
 Capabilities [{applicationCacheEnabled=true, rotatable=false, handlesAlerts=true, databaseEnabled=true, version=46.0, platform=WINDOWS, nativeEvents=false, acceptSslCerts=true, webStorageEnabled=true, locationContextEnabled=true, browserName=firefox, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true}]
-Session ID: 03ead298-b6b4-4e5d-bd05-eec96e0b8af8"
+Session ID: 141eb57f-7406-4ec1-b12d-4c134a7e68d9"
               >
-<![CDATA[org.openqa.selenium.TimeoutException: Timed out after 30 seconds waiting for element to be clickable: Proxy element for: DefaultElementLocator 'By.xpath: //*[@id='nameValueInpu']'
+<![CDATA[org.openqa.selenium.TimeoutException: Timed out after 30 seconds waiting for element to be clickable: Proxy element for: DefaultElementLocator 'By.xpath: //table[@id='user-table']/tbody/tr[1]//a'
 Build info: version: '2.53.1', revision: 'a36b8b1cd5757287168e54b817830adce9b0158d', time: '2016-06-30 19:26:09'
 System info: host: 'DESKTOP-ER1VHCV', ip: '192.168.3.3', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_102'
 Driver info: org.openqa.selenium.firefox.FirefoxDriver
 Capabilities [{applicationCacheEnabled=true, rotatable=false, handlesAlerts=true, databaseEnabled=true, version=46.0, platform=WINDOWS, nativeEvents=false, acceptSslCerts=true, webStorageEnabled=true, locationContextEnabled=true, browserName=firefox, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true}]
-Session ID: 03ead298-b6b4-4e5d-bd05-eec96e0b8af8
+Session ID: 141eb57f-7406-4ec1-b12d-4c134a7e68d9
   org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:80)
   org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:261)
-  com.mobizio.selenium.framework.BasePage.waitForElement(BasePage.java:168)
-  com.mobizio.pages.BranchPage.enterNewBranchDetail(BranchPage.java:97)
-  BranchManagement.CreateBranchWithAllDetails.createNewBranchWithAllDetails(CreateBranchWithAllDetails.java:71)
+  com.mobizio.selenium.framework.BasePage.waitForElement(BasePage.java:163)
+  com.mobizio.selenium.framework.BasePage.clickOn(BasePage.java:62)
+  com.mobizio.pages.UserPage.editUserPassword(UserPage.java:377)
+  UserManagement.CreateNewUserWithAllDetails.createNewUserWithAllDetails(CreateNewUserWithAllDetails.java:98)
   sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
   sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
   sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -50,15 +51,15 @@ Session ID: 03ead298-b6b4-4e5d-bd05-eec96e0b8af8
   org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:132)
   org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:236)
   org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:81)
-Caused by: org.openqa.selenium.NoSuchElementException: Unable to locate element: {"method":"xpath","selector":"//*[@id='nameValueInpu']"}
-Command duration or timeout: 10 milliseconds
+Caused by: org.openqa.selenium.NoSuchElementException: Unable to locate element: {"method":"xpath","selector":"//table[@id='user-table']/tbody/tr[1]//a"}
+Command duration or timeout: 11 milliseconds
 For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
 Build info: version: '2.53.1', revision: 'a36b8b1cd5757287168e54b817830adce9b0158d', time: '2016-06-30 19:26:09'
 System info: host: 'DESKTOP-ER1VHCV', ip: '192.168.3.3', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_102'
 Driver info: org.openqa.selenium.firefox.FirefoxDriver
 Capabilities [{applicationCacheEnabled=true, rotatable=false, handlesAlerts=true, databaseEnabled=true, version=46.0, platform=WINDOWS, nativeEvents=false, acceptSslCerts=true, webStorageEnabled=true, locationContextEnabled=true, browserName=firefox, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true}]
-Session ID: 03ead298-b6b4-4e5d-bd05-eec96e0b8af8
-*** Element info: {Using=xpath, value=//*[@id='nameValueInpu']}
+Session ID: 141eb57f-7406-4ec1-b12d-4c134a7e68d9
+*** Element info: {Using=xpath, value=//table[@id='user-table']/tbody/tr[1]//a}
   sun.reflect.GeneratedConstructorAccessor14.newInstance(Unknown Source)
   sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
   java.lang.reflect.Constructor.newInstance(Constructor.java:423)
@@ -71,7 +72,7 @@ Session ID: 03ead298-b6b4-4e5d-bd05-eec96e0b8af8
   org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:355)
   org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:69)
   org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:38)
-  com.sun.proxy.$Proxy12.isDisplayed(Unknown Source)
+  com.sun.proxy.$Proxy11.isDisplayed(Unknown Source)
   org.openqa.selenium.support.ui.ExpectedConditions.elementIfVisible(ExpectedConditions.java:302)
   org.openqa.selenium.support.ui.ExpectedConditions.access$100(ExpectedConditions.java:41)
   org.openqa.selenium.support.ui.ExpectedConditions$10.apply(ExpectedConditions.java:288)
@@ -79,9 +80,10 @@ Session ID: 03ead298-b6b4-4e5d-bd05-eec96e0b8af8
   org.openqa.selenium.support.ui.ExpectedConditions$23.apply(ExpectedConditions.java:687)
   org.openqa.selenium.support.ui.ExpectedConditions$23.apply(ExpectedConditions.java:680)
   org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:238)
-  com.mobizio.selenium.framework.BasePage.waitForElement(BasePage.java:168)
-  com.mobizio.pages.BranchPage.enterNewBranchDetail(BranchPage.java:97)
-  BranchManagement.CreateBranchWithAllDetails.createNewBranchWithAllDetails(CreateBranchWithAllDetails.java:71)
+  com.mobizio.selenium.framework.BasePage.waitForElement(BasePage.java:163)
+  com.mobizio.selenium.framework.BasePage.clickOn(BasePage.java:62)
+  com.mobizio.pages.UserPage.editUserPassword(UserPage.java:377)
+  UserManagement.CreateNewUserWithAllDetails.createNewUserWithAllDetails(CreateNewUserWithAllDetails.java:98)
   sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
   sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
   sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -106,16 +108,16 @@ Session ID: 03ead298-b6b4-4e5d-bd05-eec96e0b8af8
   org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:132)
   org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:236)
   org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:81)
-Caused by: org.openqa.selenium.NoSuchElementException: Unable to locate element: {"method":"xpath","selector":"//*[@id='nameValueInpu']"}
+Caused by: org.openqa.selenium.NoSuchElementException: Unable to locate element: {"method":"xpath","selector":"//table[@id='user-table']/tbody/tr[1]//a"}
 For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
 Build info: version: '2.53.1', revision: 'a36b8b1cd5757287168e54b817830adce9b0158d', time: '2016-06-30 19:26:09'
 System info: host: 'DESKTOP-ER1VHCV', ip: '192.168.3.3', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_102'
 Driver info: driver.version: unknown
-  <anonymous class>.FirefoxDriver.prototype.findElementInternal_(file:///C:/Users/GAURAV~1.360/AppData/Local/Temp/anonymous303663090829609141webdriver-profile/extensions/fxdriver@googlecode.com/components/driver-component.js:10770)
-  <anonymous class>.FirefoxDriver.prototype.findElement(file:///C:/Users/GAURAV~1.360/AppData/Local/Temp/anonymous303663090829609141webdriver-profile/extensions/fxdriver@googlecode.com/components/driver-component.js:10779)
-  <anonymous class>.DelayedCommand.prototype.executeInternal_/h(file:///C:/Users/GAURAV~1.360/AppData/Local/Temp/anonymous303663090829609141webdriver-profile/extensions/fxdriver@googlecode.com/components/command-processor.js:12661)
-  <anonymous class>.DelayedCommand.prototype.executeInternal_(file:///C:/Users/GAURAV~1.360/AppData/Local/Temp/anonymous303663090829609141webdriver-profile/extensions/fxdriver@googlecode.com/components/command-processor.js:12666)
-  <anonymous class>.DelayedCommand.prototype.execute/<(file:///C:/Users/GAURAV~1.360/AppData/Local/Temp/anonymous303663090829609141webdriver-profile/extensions/fxdriver@googlecode.com/components/command-processor.js:12608)
+  <anonymous class>.FirefoxDriver.prototype.findElementInternal_(file:///C:/Users/GAURAV~1.360/AppData/Local/Temp/anonymous5591268925715874925webdriver-profile/extensions/fxdriver@googlecode.com/components/driver-component.js:10770)
+  <anonymous class>.FirefoxDriver.prototype.findElement(file:///C:/Users/GAURAV~1.360/AppData/Local/Temp/anonymous5591268925715874925webdriver-profile/extensions/fxdriver@googlecode.com/components/driver-component.js:10779)
+  <anonymous class>.DelayedCommand.prototype.executeInternal_/h(file:///C:/Users/GAURAV~1.360/AppData/Local/Temp/anonymous5591268925715874925webdriver-profile/extensions/fxdriver@googlecode.com/components/command-processor.js:12661)
+  <anonymous class>.DelayedCommand.prototype.executeInternal_(file:///C:/Users/GAURAV~1.360/AppData/Local/Temp/anonymous5591268925715874925webdriver-profile/extensions/fxdriver@googlecode.com/components/command-processor.js:12666)
+  <anonymous class>.DelayedCommand.prototype.execute/<(file:///C:/Users/GAURAV~1.360/AppData/Local/Temp/anonymous5591268925715874925webdriver-profile/extensions/fxdriver@googlecode.com/components/command-processor.js:12608)
 ]]>
       </failure>
 

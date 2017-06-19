@@ -3,10 +3,9 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Factory;
 import org.testng.annotations.Test;
 
-import com.mobizio.constant.GlobalConstant.FileNames;
+import com.mobizio.constant.FileName.FileNames;
 import com.mobizio.datamodel.UserModel;
 import com.mobizio.dataproviders.DataProviders;
-import com.mobizio.pages.UserPage;
 import com.mobizio.selenium.framework.BaseTest;
 import com.mobizio.selenium.framework.Configuration;
 import com.mobizio.selenium.framework.Utilities;
@@ -17,9 +16,9 @@ public class CreateNewUserWithMandatoryDetails extends BaseTest{
 	public CreateNewUserWithMandatoryDetails(String browser) {
 		super(browser);
 		}
+	
 	Configuration propertyReader ;
 	UserModel userModel; 
-	private UserPage userPage;
 	String randomString= Utilities.randomString(4).toLowerCase();
 	
 	@BeforeMethod
@@ -29,7 +28,7 @@ public class CreateNewUserWithMandatoryDetails extends BaseTest{
 		userModel.setFirstName(propertyReader.readApplicationData("firstName"));
 		userModel.setUserName(userModel.getFirstName() + randomString);
 		userModel.setLastName(propertyReader.readApplicationData("lastName"));
-		userModel.setEmail(userModel.getFirstName()+userModel.getLastName()+"@gmail.com");
+		userModel.setEmail(userModel.getFirstName()+userModel.getLastName()+"@mailinator.com");
 		userModel.setPassword(propertyReader.readApplicationData("password"));
 		userModel.setConfirmPassword(propertyReader.readApplicationData("confirmPassword"));
 		userModel.setBranch(propertyReader.readApplicationData("branchName"));
@@ -39,7 +38,7 @@ public class CreateNewUserWithMandatoryDetails extends BaseTest{
 
 	
 	@Test (description = "create new user with all mandatory fields")
-	public void createNewUserWithMandatoryDetails() throws Exception
+	public void createNewUserWithMandatoryDetails() 
 	{
 		reportLog("Login with user name "+userName+" and password " +password);
 		dashBoardPage = loginPage.login(userName, password);
@@ -56,6 +55,9 @@ public class CreateNewUserWithMandatoryDetails extends BaseTest{
 		reportLog("Click on Users");
 		userPage = dashBoardPage.clickOnUsers();
 		
+		reportLog("verify user page");
+		userPage.verifyUsersPage();
+		
 		reportLog("click on new user button");
 		userPage.clickOnNewUserButton();
 		
@@ -68,11 +70,11 @@ public class CreateNewUserWithMandatoryDetails extends BaseTest{
 		reportLog("click on create button");
 		userPage.clickOnCreateButton();
 		
-		reportLog("verify new user page");
-		userPage.verifyUserPage();
+		reportLog("verify user page");
+		userPage.verifyUsersPage();
 		
 		reportLog("verify newly created user on user page ");
-		userPage.verifyCreatedUserOnUserPage(userModel.getUserName());
+		userPage.verifyCreatedUserOnUserPage(userModel);
 		
 		reportLog("Logout from application");		
 		loginPage = dashBoardPage.logOut();

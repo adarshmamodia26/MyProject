@@ -37,10 +37,12 @@ import com.mobizio.pages.SectionPage;
 import com.mobizio.pages.ServicesPage;
 import com.mobizio.pages.TaskPage;
 import com.mobizio.pages.TaskTypePage;
+import com.mobizio.pages.UserPage;
 
 public abstract class BaseTest {
 
-	private static final Logger logger = LoggerFactory.getLogger(BaseTest.class);
+	private static final Logger logger = LoggerFactory
+			.getLogger(BaseTest.class);
 	private static final String BREAK_LINE = "<\br>";
 	protected String userName;
 	protected String password;
@@ -62,6 +64,7 @@ public abstract class BaseTest {
 	protected FormPage formPage;
 	protected TaskPage taskPage;
 	protected BranchPage branchPage;
+	protected UserPage userPage;
 
 	enum DriverType {
 		Firefox, IE, Chrome
@@ -77,26 +80,27 @@ public abstract class BaseTest {
 			browserType = Configuration.readApplicationFile("Browser");
 		}
 
-		userName = Configuration.readApplicationFile("Tenant_Username");
-		password = Configuration.readApplicationFile("Tenant_Password");
+//		userName = Configuration.readApplicationFile("Tenant_Username");
+//		password = Configuration.readApplicationFile("Tenant_Password");
 
 		this.applicationUrl = Configuration.readApplicationFile("URL");
 
-		if (DriverType.Firefox.toString().toLowerCase().equals(browserType.toLowerCase())) {
+		if (DriverType.Firefox.toString().toLowerCase()
+				.equals(browserType.toLowerCase())) {
 			driver = new FirefoxDriver();
-		} 
-		else if (DriverType.IE.toString().toLowerCase().equals(browserType.toLowerCase())) {
-			System.setProperty("webdriver.ie.driver",
-					getPath() + "//src//test//resources//webdriver/IEDriverServer.exe");
+		} else if (DriverType.IE.toString().toLowerCase()
+				.equals(browserType.toLowerCase())) {
+			System.setProperty("webdriver.ie.driver", getPath()
+					+ "//src//test//resources//webdriver/IEDriverServer.exe");
 			DesiredCapabilities capabilities = new DesiredCapabilities();
 			capabilities.setCapability(CapabilityType.ACCEPT_SSL_CERTS, true);
 			driver = new InternetExplorerDriver(capabilities);
 		}
-		
 
-		else if (DriverType.Chrome.toString().toLowerCase().equals(browserType.toLowerCase())) {
-			System.setProperty("webdriver.chrome.driver",
-					getPath() + "/src//test//resources//webdriver/chromedriver.exe");
+		else if (DriverType.Chrome.toString().toLowerCase()
+				.equals(browserType.toLowerCase())) {
+			System.setProperty("webdriver.chrome.driver", getPath()
+					+ "/src//test//resources//webdriver/chromedriver.exe");
 			driver = new ChromeDriver();
 		} else {
 			throw new Exception("Please pass valiedbrowser type value");
@@ -116,7 +120,7 @@ public abstract class BaseTest {
 
 	@AfterClass
 	public void afterMainMethod() {
-		//driver.quit();
+		// driver.quit();
 	}
 
 	@AfterSuite
@@ -159,12 +163,16 @@ public abstract class BaseTest {
 	public void captureScreenshot(String fileName) {
 		try {
 			String screenshotName = this.getFileName(fileName);
-			FileOutputStream out = new FileOutputStream("screenshots//" + screenshotName + ".jpg");
-			out.write(((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES));
+			FileOutputStream out = new FileOutputStream("screenshots//"
+					+ screenshotName + ".jpg");
+			out.write(((TakesScreenshot) driver)
+					.getScreenshotAs(OutputType.BYTES));
 			out.close();
 			String path = getPath();
-			String screen = "file://" + path + "/screenshots/" + screenshotName + ".jpg";
-			Reporter.log("<a href= '" + screen + "'target='_blank' >" + screenshotName + "</a>");
+			String screen = "file://" + path + "/screenshots/" + screenshotName
+					+ ".jpg";
+			Reporter.log("<a href= '" + screen + "'target='_blank' >"
+					+ screenshotName + "</a>");
 		} catch (Exception e) {
 
 		}
@@ -182,6 +190,14 @@ public abstract class BaseTest {
 		Calendar cal = Calendar.getInstance();
 		String fileName = file + dateFormat.format(cal.getTime());
 		return fileName;
+	}
+	
+	/*
+	 * verify records per page
+	 */
+	public void verifyRecordsPerPage()
+	{
+		
 	}
 
 }

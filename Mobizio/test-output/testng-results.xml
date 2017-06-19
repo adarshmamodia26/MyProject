@@ -2,7 +2,7 @@
 <testng-results skipped="0" failed="0" total="1" passed="1">
   <reporter-output>
     <line>
-      <![CDATA[<r>Login with user name AutomationTenantAdmin and password adminm@1234]]>
+      <![CDATA[<r>Login with user name uuseriat and password Jupiter20#]]>
     </line>
     <line>
       <![CDATA[<r>verify user login succesfully]]>
@@ -17,62 +17,38 @@
       <![CDATA[<r>Click on Branches]]>
     </line>
     <line>
+      <![CDATA[<r>verify branch page]]>
+    </line>
+    <line>
       <![CDATA[<r>Click on NewBranch Button]]>
     </line>
     <line>
       <![CDATA[<r>enter new branch details]]>
     </line>
     <line>
-      <![CDATA[<r>verify new branch]]>
+      <![CDATA[<r>click on create button]]>
     </line>
     <line>
-      <![CDATA[<r>get branch name]]>
-    </line>
-    <line>
-      <![CDATA[<r>search branch name]]>
-    </line>
-    <line>
-      <![CDATA[<r>click on searched branch name]]>
-    </line>
-    <line>
-      <![CDATA[<r>click on edit button]]>
-    </line>
-    <line>
-      <![CDATA[<r>edit all the details]]>
-    </line>
-    <line>
-      <![CDATA[<r>search new branch]]>
-    </line>
-    <line>
-      <![CDATA[<r>click on searched branch]]>
-    </line>
-    <line>
-      <![CDATA[<r>verify branch detail on branch page]]>
-    </line>
-    <line>
-      <![CDATA[<r>Logout from application]]>
-    </line>
-    <line>
-      <![CDATA[<r>verify logout successfully]]>
+      <![CDATA[<r>verify newly created branch]]>
     </line>
   </reporter-output>
-  <suite name="Default suite" duration-ms="173176" started-at="2017-06-16T13:39:15Z" finished-at="2017-06-16T13:42:08Z">
+  <suite name="Default suite" duration-ms="31819" started-at="2017-06-19T09:23:19Z" finished-at="2017-06-19T09:23:51Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="173176" started-at="2017-06-16T13:39:15Z" finished-at="2017-06-16T13:42:08Z">
+    <test name="Default test" duration-ms="31819" started-at="2017-06-19T09:23:19Z" finished-at="2017-06-19T09:23:51Z">
       <class name="BranchManagement.EditBranchWithAllDetails">
-        <test-method status="PASS" signature="setUp()[pri:0, instance:BranchManagement.EditBranchWithAllDetails@76707e36]" name="setUp" is-config="true" duration-ms="19006" started-at="2017-06-16T19:09:15Z" finished-at="2017-06-16T19:09:34Z">
+        <test-method status="PASS" signature="setUp()[pri:0, instance:BranchManagement.EditBranchWithAllDetails@9660f4e]" name="setUp" is-config="true" duration-ms="8842" started-at="2017-06-19T10:23:19Z" finished-at="2017-06-19T10:23:28Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method status="PASS" signature="initiData()[pri:0, instance:BranchManagement.EditBranchWithAllDetails@76707e36]" name="initiData" is-config="true" duration-ms="140" started-at="2017-06-16T19:09:34Z" finished-at="2017-06-16T19:09:34Z">
+        <test-method status="PASS" signature="initiData()[pri:0, instance:BranchManagement.EditBranchWithAllDetails@9660f4e]" name="initiData" is-config="true" duration-ms="13" started-at="2017-06-19T10:23:28Z" finished-at="2017-06-19T10:23:28Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- initiData -->
-        <test-method status="PASS" signature="editNewBranchWithAllDetails()[pri:0, instance:BranchManagement.EditBranchWithAllDetails@76707e36]" name="editNewBranchWithAllDetails" duration-ms="154007" started-at="2017-06-16T19:09:34Z" description="create new branch with all fields" finished-at="2017-06-16T19:12:08Z">
+        <test-method status="PASS" signature="editBranchWithAllDetails()[pri:0, instance:BranchManagement.EditBranchWithAllDetails@9660f4e]" name="editBranchWithAllDetails" duration-ms="22953" started-at="2017-06-19T10:23:28Z" description="create new branch with all fields" finished-at="2017-06-19T10:23:51Z">
           <reporter-output>
             <line>
-              <![CDATA[<r>Login with user name AutomationTenantAdmin and password adminm@1234]]>
+              <![CDATA[<r>Login with user name uuseriat and password Jupiter20#]]>
             </line>
             <line>
               <![CDATA[<r>verify user login succesfully]]>
@@ -87,51 +63,27 @@
               <![CDATA[<r>Click on Branches]]>
             </line>
             <line>
+              <![CDATA[<r>verify branch page]]>
+            </line>
+            <line>
               <![CDATA[<r>Click on NewBranch Button]]>
             </line>
             <line>
               <![CDATA[<r>enter new branch details]]>
             </line>
             <line>
-              <![CDATA[<r>verify new branch]]>
+              <![CDATA[<r>click on create button]]>
             </line>
             <line>
-              <![CDATA[<r>get branch name]]>
-            </line>
-            <line>
-              <![CDATA[<r>search branch name]]>
-            </line>
-            <line>
-              <![CDATA[<r>click on searched branch name]]>
-            </line>
-            <line>
-              <![CDATA[<r>click on edit button]]>
-            </line>
-            <line>
-              <![CDATA[<r>edit all the details]]>
-            </line>
-            <line>
-              <![CDATA[<r>search new branch]]>
-            </line>
-            <line>
-              <![CDATA[<r>click on searched branch]]>
-            </line>
-            <line>
-              <![CDATA[<r>verify branch detail on branch page]]>
-            </line>
-            <line>
-              <![CDATA[<r>Logout from application]]>
-            </line>
-            <line>
-              <![CDATA[<r>verify logout successfully]]>
+              <![CDATA[<r>verify newly created branch]]>
             </line>
           </reporter-output>
-        </test-method> <!-- editNewBranchWithAllDetails -->
-        <test-method status="PASS" signature="afterMainMethod()[pri:0, instance:BranchManagement.EditBranchWithAllDetails@76707e36]" name="afterMainMethod" is-config="true" duration-ms="0" started-at="2017-06-16T19:12:08Z" finished-at="2017-06-16T19:12:08Z">
+        </test-method> <!-- editBranchWithAllDetails -->
+        <test-method status="PASS" signature="afterMainMethod()[pri:0, instance:BranchManagement.EditBranchWithAllDetails@9660f4e]" name="afterMainMethod" is-config="true" duration-ms="1" started-at="2017-06-19T10:23:51Z" finished-at="2017-06-19T10:23:51Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterMainMethod -->
-        <test-method status="PASS" signature="tearDownSuite()[pri:0, instance:BranchManagement.EditBranchWithAllDetails@76707e36]" name="tearDownSuite" is-config="true" duration-ms="0" started-at="2017-06-16T19:12:08Z" finished-at="2017-06-16T19:12:08Z">
+        <test-method status="PASS" signature="tearDownSuite()[pri:0, instance:BranchManagement.EditBranchWithAllDetails@9660f4e]" name="tearDownSuite" is-config="true" duration-ms="0" started-at="2017-06-19T10:23:51Z" finished-at="2017-06-19T10:23:51Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDownSuite -->

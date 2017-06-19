@@ -8,7 +8,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.testng.Assert;
 
-import com.mobizio.constant.GlobalConstant.FileNames;
+import com.mobizio.constant.GlobalConstants.Constant;
+
 import com.mobizio.datamodel.TaskTypeModel;
 import com.mobizio.selenium.framework.BasePage;
 
@@ -48,7 +49,7 @@ public class TaskTypePage extends BasePage{
 	{
 		_waitForJStoLoad();
 		String taskTypePageText=taskTypes.getText();
-		Assert.assertEquals(FileNames.TaskTypePage.toString(), taskTypePageText);
+		Assert.assertEquals(Constant.TaskTypePage.toString(), taskTypePageText);
 	}
 	
 	/*
@@ -67,7 +68,7 @@ public class TaskTypePage extends BasePage{
 	{
 		_waitForJStoLoad();
 		String newTaskTypePageText=newTaskType.getText();
-		Assert.assertEquals(FileNames.NewTaskTypePage.toString(), newTaskTypePageText);
+		Assert.assertEquals(Constant.NewTaskTypePage.toString(), newTaskTypePageText);
 	}
 	
 	/*

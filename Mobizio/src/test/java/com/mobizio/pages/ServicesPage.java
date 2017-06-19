@@ -58,17 +58,12 @@ public class ServicesPage extends BasePage {
 		_waitForJStoLoad();
 	}
 	
-	public void clickOnService()
-	{
-		_waitForJStoLoad();
-		waitForElement(tableRow4);
-		clickOn(tableRow4);
-		_waitForJStoLoad();
-	}
 	
+	/*
+	 * click on roles
+	 */
 	public RolePage clickOnroles()
 	{
-		waitForElement(roles);
 		clickOn(roles);
 		_waitForJStoLoad();
 		return PageFactory.initElements(getDriver(), RolePage.class);
@@ -82,7 +77,10 @@ public class ServicesPage extends BasePage {
 		return PageFactory.initElements(getDriver(), CaseListPage.class);
 	}
 	
-	public void clickOnServiceName(ServiceModel serviceModel)
+	/*
+	 * click on service
+	 */
+	public void clickOnService(ServiceModel serviceModel)
 	{
 		_waitForJStoLoad();
 		int pageCount=totalPage.size()-2;
@@ -95,6 +93,7 @@ public class ServicesPage extends BasePage {
 			{
 				WebElement serviceName=getDriver().findElement(By.xpath("//table[@id='servicesTable']/tbody/tr["+i+"]/td[1]//span"));
 				String sName=serviceName.getText();
+				System.out.println(serviceModel.getServiceName());
 				if(sName.equals(serviceModel.getServiceName()))
 				{
 					clickOn(serviceName);

@@ -29,12 +29,20 @@ public class CustomerModel {
 	private String role; 
 	private String tenantCustomerId;
 	private String nfcTagContent;
+	private String relationship;
 	
 	public String getDescription() {
 		return description;
 	}
 	public void setDescription(String description) {
 		this.description = description;
+	}
+	
+	public String getRelationship() {
+		return relationship;
+	}
+	public void setRelationship(String relationship) {
+		this.relationship = relationship;
 	}
 	
 	public String getCustomerId() {

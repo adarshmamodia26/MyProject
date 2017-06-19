@@ -1,137 +1,160 @@
 package com.mobizio.pages;
+
+import java.util.List;
+
+import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
+
 import com.mobizio.datamodel.UserModel;
+import com.mobizio.constant.GlobalConstants.Constant;
 import com.mobizio.selenium.framework.BasePage;
 
 public class UserPage extends BasePage{
 
 	public UserPage(WebDriver driver) {
 		super(driver);
-		
 	}
 	
 	@FindBy(xpath = "//li[contains(text(),'Users')]")
-	private WebElement users;
+	private WebElement usersPage;
 	
 	@FindBy(xpath = "//a[@id='addNewUserBtn']/span")
-	private WebElement newUserButton;
+	private WebElement newUserBtn;
 	
-	@FindBy(xpath = "//*[@id='editUserBtn']")
-	private WebElement editButton;
+	@FindBy(xpath = "//a[@id='editUserBtn']")
+	private WebElement editBtn;
 	
-	@FindBy(xpath = "//*[@id='lnkEditPassword']")
-	private WebElement editPasswordButton;
+	@FindBy(xpath = "//a[@id='lnkEditPassword']")
+	private WebElement editPasswordBtn;
+	
+	@FindBy(xpath = "//span[text()='Edit Password']")
+	private WebElement editPassword;
 	
 	@FindBy(xpath = "//li[contains(text(),'New User')]")
-	private WebElement newUser;
+	private WebElement newUserPage;
 	
 	@FindBy(xpath = "//input[@id='usernameValueInput']")
-	private WebElement inputUserName;
+	private WebElement userNameInput;
 	
 	@FindBy(xpath = "//input[@id='emailValueInput']")
-	private WebElement emailIdField;
+	private WebElement emailIdInput;
 	
 	@FindBy(xpath = "//input[@id='passwordValueInput']")
-	private WebElement passwordField;
+	private WebElement passwordInput;
 
 	@FindBy(xpath = "//input[@id='confirmPasswordValueInput']")
-	private WebElement confirmPasswordField;
+	private WebElement confirmPasswordInput;
 
 	@FindBy(xpath = "//input[@id='firstNameValueInput']")
-	private WebElement firstNameField;
+	private WebElement firstNameInput;
 
 	@FindBy(xpath = "//input[@id='lastNameValueInput']")
-	private WebElement lastNameField;
+	private WebElement lastNameInput;
 	
 	@FindBy(xpath = "//select[@id='roleValueInput']")
-	private WebElement userTypeField;
+	private WebElement userTypeInput;
 	
 	@FindBy(xpath = "//input[@id='tenantCarerIdValueInput']")
-	private WebElement tenantUserIdField;
+	private WebElement tenantUserIdInput;
 	
 	@FindBy(xpath = "//div[contains(@id,'branchNameInput')]")
-	private WebElement searchSelectTextBox;
+	private WebElement branchInput;
 	
 	@FindBy(xpath = "//input[@id='s2id_autogen2_search']")
-	private WebElement branchNameField;
+	private WebElement branchNameInput;
 	
 	@FindBy(xpath = "//input[contains(@aria-activedescendant,'select2-result')]")
-	private WebElement waitForSearchSelectTextBox;
+	private WebElement searchSelectTextBox;
 	
 	@FindBy(xpath = "//button[@id='btnSave']")
-	private WebElement createButton;
+	private WebElement createBtn;
 	
 	@FindBy(xpath = "//table[@id='user-table']/tbody/tr[1]//a")
-	private WebElement newlyCreatedUser;
+	private WebElement createdUser;
+	
+	@FindBy(xpath = "//table[@id='user-table']/tbody/tr")
+	private WebElement totalUsers;
 	
 	@FindBy(xpath = "//input[@id='dobValueInput']")
-	private WebElement dobField;
+	private WebElement dobInput;
 	
 	@FindBy(xpath = "//select[@id='titleValueInput']")
-	private WebElement titleField;
+	private WebElement titleInput;
 
 	@FindBy(xpath = "//select[@id='genderValueInput']")
-	private WebElement genderField;
+	private WebElement genderInput;
 
 	@FindBy(xpath = "//input[@id='firstLineValueInput']")
-	private WebElement addressLine1Field;
+	private WebElement addressLine1Input;
 
 	@FindBy(xpath = "//input[@id='secondLineValueInput']")
-	private WebElement addressLine2Field;
+	private WebElement addressLine2Input;
 
 	@FindBy(xpath = "//input[@id='cityValueInput']")
-	private WebElement cityField;
+	private WebElement cityInput;
 
 	@FindBy(xpath = "//input[@id='stateValueInput']")
-	private WebElement countyField;
+	private WebElement countyInput;
 
 	@FindBy(xpath = "//input[@id='postcodeValueInput']")
-	private WebElement postcodeField;
+	private WebElement postcodeInput;
 
 	@FindBy(xpath = "//select[@id='countryValueInput']")
-	private WebElement countryField;
+	private WebElement countryInput;
 
 	@FindBy(xpath = "//input[@id='latitudeValueInput']")
-	private WebElement latitudeField;
+	private WebElement latitudeInput;
 
 	@FindBy(xpath = "//input[@id='longitudeValueInput']")
-	private WebElement longitudeField;
+	private WebElement longitudeInput;
 
 	@FindBy(xpath = "//input[@id='primaryTelephoneValueInput']")
-	private WebElement primaryTelephoneField;
+	private WebElement primaryTelephoneInput;
 
 	@FindBy(xpath = "//input[@id='secondaryTelephoneValueInput']")
-	private WebElement secondaryTelephoneField;
+	private WebElement secondaryTelephoneInput;
 	
 	@FindBy(xpath = "//span[text()='Username']/parent::label/following-sibling::div/span")
 	private WebElement username;
 	
 	@FindBy(xpath = "//input[@id='userPin']")
-	private WebElement pinField;
+	private WebElement pinInput;
 	
+	@FindBy(xpath = "//a[@id='btnCancel']")
+	private WebElement cancelBtn;
+	
+	@FindBy(xpath = "//div[@id='user-table_filter']//input[@type='search']")
+	private WebElement searchUser;
+	
+	@FindBy(xpath = "//div[@id='user-table_length']/label/select")
+	private WebElement recordsPerPage;
+	
+	@FindBy(xpath="//div[@id='user-table_paginate']/ul/li")
+	private List<WebElement> totalPage;
+	
+	@FindBy(xpath="//div[@id='user-table_info']")
+	private WebElement totalRecords;
 
 	/*
-	 * Verify User Page
+	 * Verify Users Page
 	 */
-	public void verifyUserPage() {
+	public void verifyUsersPage() {
 		_waitForJStoLoad();
-		waitForElement(users);
-		String customerPageText = users.getText();
-		Assert.assertEquals("Users", customerPageText);
+		waitForElement(usersPage);
+		Assert.assertEquals(usersPage.getText(),Constant.UserPage.toString());
 	}
 
-	
 	/*
 	 * Click on new user button
 	 */
 	public void clickOnNewUserButton()
 	{
-		waitForElement(newUserButton);
-		clickOn(newUserButton);
+		clickOn(newUserBtn);
 	}
 	
 	/*
@@ -139,9 +162,8 @@ public class UserPage extends BasePage{
 	 */
 	public void verifyNewUserPage() {
 		_waitForJStoLoad();
-		waitForElement(newUser);
-		String userPageText = newUser.getText();
-		Assert.assertEquals("New User", userPageText);
+		waitForElement(newUserPage);
+		Assert.assertEquals(newUserPage.getText(),Constant.NewUserPage.toString());
 	}
 	
 	
@@ -150,266 +172,264 @@ public class UserPage extends BasePage{
 	 */
 	public void clickOnCreateButton()
 	{
-		waitForElement(createButton);
-		clickOn(createButton);
+		clickOn(createBtn);
 	}
-	
 	
 	/*
 	 * verify Created User On User Page
 	 */
-	public void verifyCreatedUserOnUserPage(String expectedUserName)
+	public void verifyCreatedUserOnUserPage(UserModel userModel)
 	{
-		String UserName= newlyCreatedUser.getText();
-		Assert.assertEquals(UserName, expectedUserName);
+		Assert.assertEquals(createdUser.getText(), userModel.getUserName());
 	}
-	
-	
 	
 	/*
 	 * enter new user details
 	 */
-	public void enterNewUserDetails(UserModel userModel)throws InterruptedException {
-
-		waitForElement(inputUserName);
-		clickOn(inputUserName);
-		inputText(inputUserName, userModel.getUserName());
-
-		waitForElement(emailIdField);
-		clickOn(emailIdField);
-		inputText(emailIdField, userModel.getEmail());
-
-		waitForElement(passwordField);
-		clickOn(passwordField);
-		inputText(passwordField, userModel.getPassword());
-
-		waitForElement(confirmPasswordField);
-		clickOn(confirmPasswordField);
-		inputText(confirmPasswordField, userModel.getConfirmPassword());
-
-		waitForElement(firstNameField);
-		clickOn(firstNameField);
-		inputText(firstNameField, userModel.getFirstName());
-
-		waitForElement(lastNameField);
-		clickOn(lastNameField);
-		inputText(lastNameField, userModel.getLastName());
+	public void enterNewUserDetails(UserModel userModel) {
 		
-		waitForElement(userTypeField);
-		selectDropDownByText(userTypeField,userModel.getUserType());
+		waitForElement(userNameInput);
+		inputText(userNameInput, userModel.getUserName());
 		
-		waitForElement(tenantUserIdField);
-		clickOn(tenantUserIdField);
-		inputText(tenantUserIdField, userModel.getTenantUserId());
+		waitForElement(emailIdInput);
+		inputText(emailIdInput, userModel.getEmail());
 		
-		clickOn(searchSelectTextBox);
-		inputText(branchNameField, userModel.getBranch());
-		waitForElement(waitForSearchSelectTextBox);
-		branchNameField.sendKeys(Keys.ENTER);
+		waitForElement(passwordInput);
+		inputText(passwordInput, userModel.getPassword());
+		
+		waitForElement(confirmPasswordInput);
+		inputText(confirmPasswordInput, userModel.getConfirmPassword());
+		
+		waitForElement(firstNameInput);
+		inputText(firstNameInput, userModel.getFirstName());
+		
+		waitForElement(lastNameInput);
+		inputText(lastNameInput, userModel.getLastName());
+		
+		waitForElement(userTypeInput);
+		selectDropDownByText(userTypeInput,userModel.getUserType());
+		
+		waitForElement(tenantUserIdInput);
+		inputText(tenantUserIdInput, userModel.getTenantUserId());
+		
+		waitForElement(branchInput);
+		clickOn(branchInput);
+		inputText(branchNameInput, userModel.getBranch());
+		waitForElement(searchSelectTextBox);
+		waitForElement(newUserPage);
+		branchNameInput.sendKeys(Keys.ENTER);
 		
 		if (userModel.getDob() != null) {
-			waitForElement(dobField);
-			clickOn(dobField);
-			inputText(dobField, userModel.getDob());
+			waitForElement(dobInput);
+			inputText(dobInput, userModel.getDob());
 		}
 
 		if (userModel.getTitle() != null) {
-			waitForElement(titleField);
-			selectDropDownByValue(titleField, userModel.getTitle());
+			waitForElement(titleInput);
+			selectDropDownByValue(titleInput, userModel.getTitle());
 		}
 
 		if (userModel.getGender() != null) {
-			waitForElement(genderField);
-			selectDropDownByValue(genderField, userModel.getGender());
+			waitForElement(genderInput);
+			selectDropDownByValue(genderInput, userModel.getGender());
 		}
 
 		if (userModel.getAddressLine1() != null) {
-			waitForElement(addressLine1Field);
-			clickOn(addressLine1Field);
-			inputText(addressLine1Field, userModel.getAddressLine1());
+			waitForElement(addressLine1Input);
+			inputText(addressLine1Input, userModel.getAddressLine1());
 		}
 
 		if (userModel.getAddressLine2() != null) {
-			waitForElement(addressLine2Field);
-			clickOn(addressLine2Field);
-			inputText(addressLine2Field, userModel.getAddressLine2());
+			waitForElement(addressLine2Input);
+			inputText(addressLine2Input, userModel.getAddressLine2());
 		}
 
 		if (userModel.getCity() != null) {
-			waitForElement(cityField);
-			clickOn(cityField);
-			inputText(cityField, userModel.getCity());
+			waitForElement(cityInput);
+			inputText(cityInput, userModel.getCity());
 		}
 
 		if (userModel.getCounty() != null) {
-			waitForElement(countyField);
-			clickOn(countyField);
-			inputText(countyField, userModel.getCounty());
+			waitForElement(countyInput);
+			inputText(countyInput, userModel.getCounty());
 		}
 
 		if (userModel.getPostCode() != null) {
-			waitForElement(postcodeField);
-			clickOn(postcodeField);
-			inputText(postcodeField, userModel.getPostCode());
+			waitForElement(postcodeInput);
+			inputText(postcodeInput, userModel.getPostCode());
 		}
 
 		if (userModel.getCountry() != null) {
-			waitForElement(countryField);
-			selectDropDownByValue(countryField, userModel.getCountry());
+			waitForElement(countryInput);
+			selectDropDownByValue(countryInput, userModel.getCountry());
 		}
 
 		if (userModel.getLatitude() != null) {
-			waitForElement(latitudeField);
-			clickOn(latitudeField);
-			inputText(latitudeField, userModel.getLatitude());
+			waitForElement(latitudeInput);
+			inputText(latitudeInput, userModel.getLatitude());
 		}
 
 		if (userModel.getLongitude() != null) {
-			waitForElement(longitudeField);
-			clickOn(longitudeField);
-			inputText(longitudeField, userModel.getLongitude());
+			waitForElement(longitudeInput);
+			inputText(longitudeInput, userModel.getLongitude());
 		}
 
 		if (userModel.getPrimaryTelephone() != null) {
-			waitForElement(primaryTelephoneField);
-			clickOn(primaryTelephoneField);
-			inputText(primaryTelephoneField,userModel.getPrimaryTelephone());
+			waitForElement(primaryTelephoneInput);
+			inputText(primaryTelephoneInput,userModel.getPrimaryTelephone());
 		}
 
 		if (userModel.getSecondaryTelephone() != null) {
-			waitForElement(secondaryTelephoneField);
-			clickOn(secondaryTelephoneField);
-			inputText(secondaryTelephoneField,userModel.getSecondaryTelephone());
+			waitForElement(secondaryTelephoneInput);
+			inputText(secondaryTelephoneInput,userModel.getSecondaryTelephone());
 		}
 	}
 	
 	/*
 	 * edit user
 	 */
-	public void editUser(UserModel userModel) throws InterruptedException
+	public void editUser(UserModel userModel)
 	{
-		clickOn(newlyCreatedUser);
-		waitForElement(editButton);
-		waitForElement(editPasswordButton);
-		clickOn(editButton);
+		clickOn(createdUser);
+		clickOn(editBtn);
+		inputText(emailIdInput, userModel.getEmail());
+		Assert.assertTrue(isElementPresent(pinInput), "pin Input not present");
+		inputText(pinInput, userModel.getPin());
+		inputText(firstNameInput, userModel.getFirstName());
+		inputText(lastNameInput, userModel.getLastName());
+		selectDropDownByText(userTypeInput,userModel.getUserType());
+		Assert.assertEquals(tenantUserIdInput.getAttribute("disabled"),"true" );
 		
-		//username
-		
-		waitForElement(emailIdField);
-		clickOn(emailIdField);
-		Assert.assertEquals(emailIdField.getAttribute("readonly"), null);
-		inputText(emailIdField, userModel.getEmail());
-		
-		Assert.assertTrue(isElementPresent(pinField), "pin field not present");
-		
-		waitForElement(firstNameField);
-		clickOn(firstNameField);
-		Assert.assertEquals(firstNameField.getAttribute("readonly"), null);
-		inputText(firstNameField, userModel.getFirstName());
-
-		waitForElement(lastNameField);
-		clickOn(lastNameField);
-		Assert.assertEquals(lastNameField.getAttribute("readonly"), null);
-		inputText(lastNameField, userModel.getLastName());
-		
-		waitForElement(userTypeField);
-		Assert.assertEquals(userTypeField.getAttribute("readonly"), null);
-		selectDropDownByText(userTypeField,userModel.getUserType());
-		
-		Assert.assertEquals(tenantUserIdField.getAttribute("disabled"),"true" );
-		
-		clickOn(searchSelectTextBox);
-		Assert.assertEquals(searchSelectTextBox.getAttribute("readonly"), null);
-		inputText(branchNameField, userModel.getBranch());
-		waitForElement(waitForSearchSelectTextBox);
-		branchNameField.sendKeys(Keys.ENTER);
+		clickOn(branchInput);
+		inputText(branchNameInput, userModel.getBranch());
+		waitForElement(searchSelectTextBox);
+		branchNameInput.sendKeys(Keys.ENTER);
 		
 		if (userModel.getDob() != null) {
-			waitForElement(dobField);
-			Assert.assertEquals(dobField.getAttribute("readonly"), null);
-			clickOn(dobField);
-			inputText(dobField, userModel.getDob());
+			inputText(dobInput, userModel.getDob());
 		}
 
 		if (userModel.getTitle() != null) {
-			waitForElement(titleField);
-			Assert.assertEquals(titleField.getAttribute("readonly"), null);
-			selectDropDownByValue(titleField, userModel.getTitle());
+			selectDropDownByValue(titleInput, userModel.getTitle());
 		}
 
 		if (userModel.getGender() != null) {
-			waitForElement(genderField);
-			Assert.assertEquals(genderField.getAttribute("readonly"), null);
-			selectDropDownByValue(genderField, userModel.getGender());
+			selectDropDownByValue(genderInput, userModel.getGender());
 		}
 
 		if (userModel.getAddressLine1() != null) {
-			waitForElement(addressLine1Field);
-			Assert.assertEquals(addressLine1Field.getAttribute("readonly"), null);
-			clickOn(addressLine1Field);
-			inputText(addressLine1Field, userModel.getAddressLine1());
+			inputText(addressLine1Input, userModel.getAddressLine1());
 		}
 
 		if (userModel.getAddressLine2() != null) {
-			waitForElement(addressLine2Field);
-			Assert.assertEquals(addressLine2Field.getAttribute("readonly"), null);
-			clickOn(addressLine2Field);
-			inputText(addressLine2Field, userModel.getAddressLine2());
+			inputText(addressLine2Input, userModel.getAddressLine2());
 		}
 
 		if (userModel.getCity() != null) {
-			waitForElement(cityField);
-			Assert.assertEquals(cityField.getAttribute("readonly"), null);
-			clickOn(cityField);
-			inputText(cityField, userModel.getCity());
+			inputText(cityInput, userModel.getCity());
 		}
 
 		if (userModel.getCounty() != null) {
-			waitForElement(countyField);
-			Assert.assertEquals(countyField.getAttribute("readonly"), null);
-			clickOn(countyField);
-			inputText(countyField, userModel.getCounty());
+			inputText(countyInput, userModel.getCounty());
 		}
 
 		if (userModel.getPostCode() != null) {
-			waitForElement(postcodeField);
-			Assert.assertEquals(postcodeField.getAttribute("readonly"), null);
-			clickOn(postcodeField);
-			inputText(postcodeField, userModel.getPostCode());
+			inputText(postcodeInput, userModel.getPostCode());
 		}
 
 		if (userModel.getCountry() != null) {
-			waitForElement(countryField);
-			Assert.assertEquals(countryField.getAttribute("readonly"), null);
-			selectDropDownByValue(countryField, userModel.getCountry());
+			selectDropDownByValue(countryInput, userModel.getCountry());
 		}
 
 		if (userModel.getLatitude() != null) {
-			waitForElement(latitudeField);
-			Assert.assertEquals(latitudeField.getAttribute("readonly"), null);
-			clickOn(latitudeField);
-			inputText(latitudeField, userModel.getLatitude());
+			inputText(latitudeInput, userModel.getLatitude());
 		}
 
 		if (userModel.getLongitude() != null) {
-			waitForElement(longitudeField);
-			Assert.assertEquals(longitudeField.getAttribute("readonly"), null);
-			clickOn(longitudeField);
-			inputText(longitudeField, userModel.getLongitude());
+			inputText(longitudeInput, userModel.getLongitude());
 		}
 
 		if (userModel.getPrimaryTelephone() != null) {
-			waitForElement(primaryTelephoneField);
-			Assert.assertEquals(primaryTelephoneField.getAttribute("readonly"), null);
-			clickOn(primaryTelephoneField);
-			inputText(primaryTelephoneField,userModel.getPrimaryTelephone());
+			inputText(primaryTelephoneInput,userModel.getPrimaryTelephone());
 		}
 
 		if (userModel.getSecondaryTelephone() != null) {
-			waitForElement(secondaryTelephoneField);
-			Assert.assertEquals(secondaryTelephoneField.getAttribute("readonly"), null);
-			clickOn(secondaryTelephoneField);
-			inputText(secondaryTelephoneField,userModel.getSecondaryTelephone());
+			inputText(secondaryTelephoneInput,userModel.getSecondaryTelephone());
+			}
 	}
+	
+	/*
+	 * verify Edit Password Page
+	 */
+	public void verifyEditPasswordPage()
+	{
+		_waitForJStoLoad();
+		waitForElement(editPassword);
+		Assert.assertEquals(editPassword.getText(),Constant.EditPassword.toString());
 	}
-}
+	
+	/*
+	 * edit user password
+	 */
+	public void editUserPassword(UserModel usermodel)
+	{
+		clickOn(createdUser);
+		clickOn(editPasswordBtn);
+		this.verifyEditPasswordPage();
+		inputText(passwordInput, usermodel.getPassword());
+		inputText(confirmPasswordInput, usermodel.getConfirmPassword());
+		clickOn(createBtn);
+	}
+	
+	/*
+	 * Records per page functionality
+	 */
+	public void verifyRecordsPerPage()
+	{
+		List<WebElement> options= new Select(recordsPerPage).getOptions();
+		boolean status=false;
+		String str= totalRecords.getText();
+		String [] tmp = str.split("f");
+		String [] t2 = tmp[1].split(" ");
+		String name= t2[1].trim();
+		int totalNoOfRecords= Integer.parseInt(name);
+		System.out.println(totalNoOfRecords);
+		for(int i=0;i<options.size();i++)
+		{
+			selectDropDownByIndex(recordsPerPage, i);
+			String value= options.get(i).getText();
+			int values= Integer.parseInt(value);
+			System.out.println(values);
+			List<WebElement> users= driver.findElements(By.xpath("//table[@id='user-table']/tbody/tr"));
+			int count=users.size();
+			System.out.println(count);
+			if(values==count)
+			{
+				status= true;
+				continue;
+			}
+			
+			else if(totalNoOfRecords==count)
+			{
+				status= true;
+				break;
+			}
+			
+			else
+			{
+				Assert.assertTrue(status);
+				break;
+			}
+			
+		}
+		
+		}
+		
+		
+
+		
+		
+		
+	}
+
+

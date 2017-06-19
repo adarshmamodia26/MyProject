@@ -94,12 +94,5 @@
 			<attribute name="maven.pomderived" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="C:/Users/adarshm/Downloads/selenium-server-standalone-2.53.0.jar"/>
-	<classpathentry kind="lib" path="C:/Users/adarshm/Downloads/poi-ooxml-3.15.jar"/>
-	<classpathentry kind="lib" path="C:/Users/adarshm/Downloads/poi-ooxml-schemas-3.15.jar"/>
-	<classpathentry kind="lib" path="C:/Users/adarshm/Downloads/selenium-java-2.53.1.jar"/>
-	<classpathentry kind="lib" path="C:/Users/adarshm/.m2/repository/org/freemarker/freemarker/2.3.23/freemarker-2.3.23.jar"/>
-	<classpathentry kind="lib" path="C:/Users/adarshm/.m2/repository/com/google/guava/guava/19.0/guava-19.0.jar"/>
-	<classpathentry kind="lib" path="C:/Users/adarshm/.m2/repository/xalan/xalan/2.7.2/xalan-2.7.2.jar"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>

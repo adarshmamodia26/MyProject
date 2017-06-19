@@ -4,7 +4,7 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Factory;
 import org.testng.annotations.Test;
 
-import com.mobizio.constant.GlobalConstant.FileNames;
+import com.mobizio.constant.FileName.FileNames;
 import com.mobizio.datamodel.DeviceModel;
 import com.mobizio.dataproviders.DataProviders;
 import com.mobizio.pages.DevicePage;

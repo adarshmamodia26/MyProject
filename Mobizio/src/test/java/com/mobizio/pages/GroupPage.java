@@ -5,7 +5,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.testng.Assert;
 
-import com.mobizio.constant.GlobalConstant.FileNames;
+import com.mobizio.constant.GlobalConstants.Constant;
+
 import com.mobizio.datamodel.GroupModel;
 import com.mobizio.selenium.framework.BasePage;
 
@@ -52,7 +53,7 @@ public class GroupPage extends BasePage {
 	{
 		_waitForJStoLoad();
 		String groupPageText= groups.getText();
-		Assert.assertEquals(FileNames.Groups.toString(), groupPageText);
+		Assert.assertEquals(Constant.Groups.toString(), groupPageText);
 	}
 	
 	/*
@@ -71,7 +72,7 @@ public class GroupPage extends BasePage {
 	{
 		_waitForJStoLoad();
 		String groupPageText= newGroup.getText();
-		Assert.assertEquals(FileNames.NewGroup.toString(), groupPageText);
+		Assert.assertEquals(Constant.NewGroup.toString(), groupPageText);
 	}
 	
 	/*

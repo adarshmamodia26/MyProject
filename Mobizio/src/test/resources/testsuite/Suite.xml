@@ -7,9 +7,11 @@
 		<listener class-name="org.uncommons.reportng.JUnitXMLReporter" />	
 	</listeners>
 
-	<test name="Automation" preserve-order="true" parallel="instances" verbose="2">
+	<test name="Login Logout" preserve-order="true" parallel="instances" verbose="2">
 		<classes>
-			<class name="BranchManagement.CreateBranchWithAllDetails" />
+			<class name="com.mobizio.testscript.LoginMobizio" />
+			<class name="com.mobizio.testscript.CreateNewCustomerWithMandatoryDetails" />
+			<class name="com.mobizio.testscript.CreateNewCustomerWithAllDetails" />
 		</classes>
 	</test>
 

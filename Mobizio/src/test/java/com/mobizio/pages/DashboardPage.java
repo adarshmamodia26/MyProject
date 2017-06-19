@@ -16,7 +16,7 @@ public class DashboardPage extends BasePage {
 	@FindBy(xpath = "//div[@class='navbar-header']/button")
 	private WebElement HamburgerIcon;
 	
-	@FindBy(xpath = "//li[@id='configurationMenu']/a/span[1]")
+	@FindBy(xpath = "//li[@id='configurationMenu']")
 	private WebElement configuration;
 	
 	@FindBy(xpath = "//*[@id='tasksMenu']/a")
@@ -25,7 +25,7 @@ public class DashboardPage extends BasePage {
 	@FindBy(xpath = "//*[@id='devicesConfigMenu']/a/span[2]")
 	private WebElement device;
 	
-	@FindBy(xpath = "//*[@id='branchesConfigMenu']/a/span[2]")
+	@FindBy(xpath = "//li[@id='branchesConfigMenu']")
 	private WebElement branch;
 	
     @FindBy(xpath = "//*[@id='profile-picture']")
@@ -70,18 +70,15 @@ public class DashboardPage extends BasePage {
 	 */
 	public void clickOnHamburgerIcon()
 	{
-		waitForElement(HamburgerIcon);
-	    clickOn(HamburgerIcon);
+		clickOn(HamburgerIcon);
 	}
 	
 	/*
 	 * click On Configuration
 	 */
-	public ConfigurationPage clickOnConfiguration()
+	public void clickOnConfiguration()
 	{
-		waitForElement(configuration);
 		clickOn(configuration);
-		return PageFactory.initElements(getDriver(), ConfigurationPage.class);
 	}
 	
 	/*
@@ -109,7 +106,6 @@ public class DashboardPage extends BasePage {
 	 */
 	public BranchPage clickOnBranch()
 	{
-		waitForElement(branch);
 		clickOn(branch);
 		return PageFactory.initElements(getDriver(), BranchPage.class);
 	}
@@ -134,7 +130,10 @@ public class DashboardPage extends BasePage {
 		clickOn(customer);
 		return PageFactory.initElements(getDriver(), CustomerPage.class);
 	}
-
+	
+	/*
+	 * logout from the application
+	 */
 	public LoginPage logOut() {
 		clickOn(userMenu);
 		clickOn(logOutLink);

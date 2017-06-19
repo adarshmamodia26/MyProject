@@ -6,17 +6,24 @@
     <listener class-name="com.mobizio.report.ExtentReporterNG"/>
     <listener class-name="org.uncommons.reportng.JUnitXMLReporter"/>
   </listeners>
-  <test name="Automation(failed)">
+  <test name="Login Logout(failed)">
     <classes>
-      <class name="BranchManagement.CreateBranchWithAllDetails">
+      <class name="CustomerManagement.CreateNewCustomerWithAllDetails">
         <methods>
           <include name="afterMainMethod"/>
-          <include name="initiData"/>
           <include name="tearDownSuite"/>
           <include name="setUp"/>
-          <include name="createNewBranchWithAllDetails"/>
+          <include name="initiData"/>
         </methods>
-      </class> <!-- BranchManagement.CreateBranchWithAllDetails -->
+      </class> <!-- CustomerManagement.CreateNewCustomerWithAllDetails -->
+      <class name="UserManagement.CreateNewUserWithAllDetails">
+        <methods>
+          <include name="createNewUserWithAllDetails"/>
+          <include name="afterMainMethod"/>
+          <include name="setUp"/>
+          <include name="initiData"/>
+        </methods>
+      </class> <!-- UserManagement.CreateNewUserWithAllDetails -->
     </classes>
-  </test> <!-- Automation(failed) -->
+  </test> <!-- Login Logout(failed) -->
 </suite> <!-- Failed suite [Test Suite] -->

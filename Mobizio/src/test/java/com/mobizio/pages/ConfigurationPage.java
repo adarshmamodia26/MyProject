@@ -19,12 +19,18 @@ public class ConfigurationPage extends BasePage {
 	@FindBy(xpath= "//*[@id='servicesConfigMenu']/a/span[2]")
 	private WebElement services;
 	
+	/*
+	 * click on users
+	 */
 	public void clickOnUsers()
 	{
 		waitForElement(users);
 		clickOn(users);
 	}
 	
+	/*
+	 * click on services
+	 */
 	public ServicesPage clickOnServices()
 	{
 		clickOn(services);

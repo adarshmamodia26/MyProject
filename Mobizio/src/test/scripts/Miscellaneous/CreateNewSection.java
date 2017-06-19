@@ -3,7 +3,7 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Factory;
 import org.testng.annotations.Test;
 
-import com.mobizio.constant.GlobalConstant.FileNames;
+import com.mobizio.constant.FileName.FileNames;
 import com.mobizio.datamodel.SectionModel;
 import com.mobizio.datamodel.ServiceModel;
 import com.mobizio.dataproviders.DataProviders;
@@ -52,13 +52,12 @@ public class CreateNewSection extends BaseTest{
 		dashBoardPage.clickOnServices();
 		
 		reportLog("Click on service name");
-		servicesPage.clickOnServiceName(serviceModel);
+		servicesPage.clickOnService(serviceModel);
 		
 		reportLog("click on sections");
 		servicesPage.clickOnSections();
 		
-
-         reportLog("click on new section button");
+		reportLog("click on new section button");
 		sectionPage.clickOnNewSection();
 		
 		reportLog("enter new section name");

@@ -7,70 +7,65 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.testng.Assert;
 
+import com.mobizio.constant.GlobalConstants.Constant;
 import com.mobizio.datamodel.BranchModel;
 import com.mobizio.selenium.framework.BasePage;
 
 public class BranchPage extends BasePage {
+	
+	@FindBy(xpath = "//li[text()='Branches']")
+	private WebElement branchPage;
 
-	@FindBy(xpath = "//*[@id='addNewBranchBtn']/span")
+	@FindBy(xpath = "//a[@id='addNewBranchBtn']/span")
 	private WebElement newBranchBtn;
 	
-	@FindBy(xpath = "//*[@id='nameValueInput']")
+	@FindBy(xpath = "//input[@id='nameValueInput']")
 	private WebElement nameInput;
 	
-	@FindBy(xpath = "//*[@id='tenantBranchIdValueInput']")
+	@FindBy(xpath = "//input[@id='tenantBranchIdValueInput']")
 	private WebElement tenantBranchIDInput;
 	
-	@FindBy(xpath = "//*[@id='primaryTelephoneValueInput']")
+	@FindBy(xpath = "//input[@id='primaryTelephoneValueInput']")
 	private WebElement primaryTelephoneInput;
 	
-	@FindBy(xpath = "//*[@id='secondaryTelephoneValueInput']")
+	@FindBy(xpath = "//input[@id='secondaryTelephoneValueInput']")
 	private WebElement secondaryTelephoneInput;
 	
-	@FindBy(xpath = "//*[@id='firstLineValueInput']")
+	@FindBy(xpath = "//input[@id='firstLineValueInput']")
 	private WebElement addressLine1Input;
 	
-	@FindBy(xpath = "//*[@id='secondLineValueInput']")
+	@FindBy(xpath = "//input[@id='secondLineValueInput']")
 	private WebElement addressLine2Input;
 	
-	@FindBy(xpath = "//*[@id='cityValueInput']")
+	@FindBy(xpath = "//input[@id='cityValueInput']")
 	private WebElement cityInput;
 	
-	@FindBy(xpath = "//*[@id='stateValueInput']")
+	@FindBy(xpath = "//input[@id='stateValueInput']")
 	private WebElement countyInput;
 	
-	@FindBy(xpath = "//*[@id='countryValueInput']")
+	@FindBy(xpath = "//input[@id='countryValueInput']")
 	private WebElement countryInput;
 
-	@FindBy(xpath = "//*[@id='postcodeValueInput']")
+	@FindBy(xpath = "//input[@id='postcodeValueInput']")
 	private WebElement postcodeInput;
 
-	@FindBy(xpath = "//*[@id='faxValueInput']")
+	@FindBy(xpath = "//input[@id='faxValueInput']")
 	private WebElement faxInput;
 	
-	@FindBy(xpath = "//*[@id='activeValueInput']")
-	private WebElement isActiveCheckbox;
-	
-	@FindBy(xpath = "//*[@id='alertNotificationEmailsValueInput']")
+	@FindBy(xpath = "//input[@id='alertNotificationEmailsValueInput']")
 	private WebElement alertNotificationEmailInput;
 	
-	@FindBy(xpath = "//*[@id='alertNotificationPhoneNumbersValueInput']")
+	@FindBy(xpath = "//input[@id='alertNotificationPhoneNumbersValueInput']")
 	private WebElement alertNotificationPhoneNumberInput;
 	
-	@FindBy(xpath = "//*[@id='btnSave']")
+	@FindBy(xpath = "//button[@id='btnSave']")
 	private WebElement createBranchBtn;
-	
-	@FindBy(xpath = "(//input[@type='search'])[1]")
-	private WebElement searchBranchInput;
-	
-	@FindBy(xpath = "//table[@id='branchesTable']/tbody/tr/td[1]/a")
-	private WebElement searchedBranchLink;
 	
 	@FindBy(xpath = "//*[@id='btnSave']")
 	private WebElement updateBranchBtn;
 	
 	@FindBy(xpath = "//*[@id='branchesTable']/tbody/tr[1]/td[1]")
-	private WebElement branchListFirstEntryName;
+	private WebElement createdBranch;
 	
 	@FindBy(xpath = "//*[@id='branchesTable_filter']/label/input")
 	private WebElement branchListFilterInput;
@@ -80,204 +75,87 @@ public class BranchPage extends BasePage {
 
 	@FindBy(xpath = "//*[@id='editBranchBtn']")
 	private WebElement editBranchBtn;
-
-	@FindBy(xpath = "//li[text()='Branches']")
-	private WebElement branchPage;
-	
 	
 	public BranchPage(WebDriver driver) {
 		super(driver);
+	}
+	
+	/*
+	 * verify branch page
+	 */
+	public void verifyBranchPage()
+	{
+		_waitForJStoLoad();
+		Assert.assertEquals(branchPage.getText(), Constant.BranchPage.toString());
 	}
 
 	/*
 	 * click on add new branch button
 	 */
-	public void clickOnNewBranch() {
-		_waitForJStoLoad();
-		waitForElement(newBranchBtn);
+	public void clickOnNewBranchButton() 
+	{
 		clickOn(newBranchBtn);
-		_waitForJStoLoad();
 	}
 
 	/*
-	 * enter branch details in branch page
+	 * create a branch with its details
 	 */
-	public void enterNewBranchDetail(BranchModel branchModel) {
-		
+	public void enterNewBranchDetail(BranchModel branchModel) 
+	{
 		waitForElement(nameInput);
-		clickOn(nameInput);
 		inputText(nameInput, branchModel.getName());
 		
 		waitForElement(tenantBranchIDInput);
-		clickOn(tenantBranchIDInput);
 		inputText(tenantBranchIDInput, branchModel.getTenantBranchID());
 		
 		waitForElement(primaryTelephoneInput);
-		clickOn(primaryTelephoneInput);
+		System.out.println(branchModel.getPrimaryTelephone());
 		inputText(primaryTelephoneInput, branchModel.getPrimaryTelephone());
 		
 		waitForElement(secondaryTelephoneInput);
-		clickOn(secondaryTelephoneInput);
 		inputText(secondaryTelephoneInput, branchModel.getSecondaryTelePhone());
 		
 		waitForElement(addressLine1Input);
-		clickOn(addressLine1Input);
 		inputText(addressLine1Input, branchModel.getAddressLine1());
 		
 		waitForElement(addressLine2Input);
-		clickOn(addressLine2Input);
 		inputText(addressLine2Input, branchModel.getAddressLine2());
 		
 		waitForElement(cityInput);
-		clickOn(cityInput);
 		inputText(cityInput, branchModel.getCity());
 		
 		waitForElement(countyInput);
-		clickOn(countyInput);
 		inputText(countyInput, branchModel.getCounty());
 		
 		waitForElement(countryInput);
-		clickOn(countryInput);
 		inputText(countryInput, branchModel.getCountry());
 		
 		waitForElement(postcodeInput);
-		clickOn(postcodeInput);
 		inputText(postcodeInput, branchModel.getPostcode());
 		
 		waitForElement(faxInput);
-		clickOn(faxInput);
 		inputText(faxInput, branchModel.getFax());
 		
-		
 		waitForElement(alertNotificationEmailInput);
-		clickOn(alertNotificationEmailInput);
 		inputText(alertNotificationEmailInput, branchModel.getAlertNotificationEmail());
 		
 		waitForElement(alertNotificationPhoneNumberInput);
-		clickOn(alertNotificationPhoneNumberInput);
 		inputText(alertNotificationPhoneNumberInput, branchModel.getAlertNotificationPhoneNumber());
-		
-		waitForElement(createBranchBtn);
+	}
+	
+	/*
+	 * click on create branch button
+	 */
+	public void clickOnCreateButton()
+	{
 		clickOn(createBranchBtn);
-		_waitForJStoLoad();
 	}
 	
-	/*
-	 * verify newly created branch on branch page
-	 */
-	public void verifyCreatedBranchOnBranchPage(String expectedBranchName) {
-		String branch = branchListFirstEntryName.getText();
-		Assert.assertEquals(branch, expectedBranchName);
-		Assert.assertEquals(branchPage.getText(),"Branches");
-	}
-	
-	
-	/*
-	 *  Verify branch details on branch page
-	 */
-	public void verifyBranchDetailsOnBranchPage(BranchModel branchModel)
-	{
-		String branchNameText="//*[@id='psmobile-container']//div[text()="+"'"+branchModel.getName()+"']";
-		Assert.assertEquals(findElement(ByLocator(branchNameText)).getText(), branchModel.getName());
-		
-		String tenantBranchIdText="//*[@id='psmobile-container']//div[text()="+"'"+branchModel.getTenantBranchID()+"']";
-		Assert.assertEquals(findElement(ByLocator(tenantBranchIdText)).getText(), branchModel.getTenantBranchID());
-		
-		String primaryTelephoneText="//label[contains(text(),'Primary Telephone')]/following-sibling::div";
-		Assert.assertEquals(findElement(ByLocator(primaryTelephoneText)).getText(), branchModel.getPrimaryTelephone());
-		
-		String secondaryTelephoneText="//label[contains(text(),'Secondary Telephone')]/following-sibling::div";
-		Assert.assertEquals(findElement(ByLocator(secondaryTelephoneText)).getText(), branchModel.getSecondaryTelePhone());
-		
-		String addressLine1Text="//*[@id='psmobile-container']//div[text()="+"'"+branchModel.getAddressLine1()+"']";
-		Assert.assertEquals(findElement(ByLocator(addressLine1Text)).getText(), branchModel.getAddressLine1());
-		
-		String addressLine2Text="//label[contains(text(),'Address Line2')]/following-sibling::div";
-		Assert.assertEquals(findElement(ByLocator(addressLine2Text)).getText(), branchModel.getAddressLine2());
-		
-		String city="//*[@id='psmobile-container']//div[text()="+"'"+branchModel.getCity()+"']";
-		Assert.assertEquals(findElement(ByLocator(city)).getText(), branchModel.getCity());
-		
-		String county="//*[@id='psmobile-container']//div[text()="+"'"+branchModel.getCounty()+"']";
-		Assert.assertEquals(findElement(ByLocator(county)).getText(), branchModel.getCounty());
-		
-		String country="//*[@id='psmobile-container']//div[text()="+"'"+branchModel.getCountry()+"']";
-		Assert.assertEquals(findElement(ByLocator(country)).getText(), branchModel.getCountry());
-		
-		String postcode="//*[@id='psmobile-container']//div[text()="+"'"+branchModel.getPostcode()+"']";
-		Assert.assertEquals(findElement(ByLocator(postcode)).getText(), branchModel.getPostcode());
-		
-		String fax="//*[@id='psmobile-container']//div[text()="+"'"+branchModel.getFax()+"']";
-		Assert.assertEquals(findElement(ByLocator(fax)).getText(), branchModel.getFax());
-		
-		String isActive="//label[contains(text(),'Is Active?')]/following-sibling::div";
-		Assert.assertEquals(findElement(ByLocator(isActive)).getText(), "Yes");
-		
-		String alertNotificationEmail="//*[@id='psmobile-container']//div[text()="+"'"+branchModel.getAlertNotificationEmail()+"']";
-		Assert.assertEquals(findElement(ByLocator(alertNotificationEmail)).getText(), branchModel.getAlertNotificationEmail());
-		
-		String alertNotificationPhoneNumber="//label[contains(text(),'Alert Notification Phone Number')]/following-sibling::div";
-		Assert.assertEquals(findElement(ByLocator(alertNotificationPhoneNumber)).getText(), branchModel.getAlertNotificationPhoneNumber());
-		
-	}
-	
-	/*
-	 *  Verify edited branch details on branch page
-	 */
-	public void verifyEditedBranchDetailsOnBranchPage(BranchModel branchModel)
-	{
-		String branchNameText="//label[contains(text(),'Name')]/following-sibling::div";
-		Assert.assertEquals(findElement(ByLocator(branchNameText)).getText(), branchModel.getName()+"edited");
-		
-		String primaryTelephoneText="//label[contains(text(),'Primary Telephone')]/following-sibling::div";
-		Assert.assertEquals(findElement(ByLocator(primaryTelephoneText)).getText(), branchModel.getPrimaryTelephone()+"1");
-		
-		String secondaryTelephoneText="//label[contains(text(),'Secondary Telephone')]/following-sibling::div";
-		Assert.assertEquals(findElement(ByLocator(secondaryTelephoneText)).getText(), branchModel.getSecondaryTelePhone()+"1");
-		
-		String addressLine1Text="//label[contains(text(),'Address Line1')]/following-sibling::div";
-		Assert.assertEquals(findElement(ByLocator(addressLine1Text)).getText(), branchModel.getAddressLine1()+"edited");
-		
-		String addressLine2Text="//label[contains(text(),'Address Line2')]/following-sibling::div";
-		Assert.assertEquals(findElement(ByLocator(addressLine2Text)).getText(), branchModel.getAddressLine2()+"edited");
-		
-		String city="//label[contains(text(),'City')]/following-sibling::div";
-		Assert.assertEquals(findElement(ByLocator(city)).getText(), branchModel.getCity()+"A");
-		
-		String county="//label[contains(text(),'County')]/following-sibling::div";
-		Assert.assertEquals(findElement(ByLocator(county)).getText(), branchModel.getCounty()+"A");
-		
-		String country="//label[contains(text(),'Country')]/following-sibling::div";
-		Assert.assertEquals(findElement(ByLocator(country)).getText(), branchModel.getCountry()+"A");
-		
-		String postcode="//label[contains(text(),'Postcode')]/following-sibling::div";
-		Assert.assertEquals(findElement(ByLocator(postcode)).getText(), branchModel.getPostcode()+"a");
-		
-		String fax="//label[contains(text(),'Fax')]/following-sibling::div";
-		Assert.assertEquals(findElement(ByLocator(fax)).getText(), branchModel.getFax()+"1");
-		
-		String isActive="//label[contains(text(),'Is Active?')]/following-sibling::div";
-		Assert.assertEquals(findElement(ByLocator(isActive)).getText(), "Yes");
-		
-		String alertNotificationEmail="//label[contains(text(),'Alert Notification Email')]/following-sibling::div";
-		Assert.assertEquals(findElement(ByLocator(alertNotificationEmail)).getText(), branchModel.getAlertNotificationEmail()+"A");
-		
-		String alertNotificationPhoneNumber="//label[contains(text(),'Alert Notification Phone Number')]/following-sibling::div";
-		Assert.assertEquals(findElement(ByLocator(alertNotificationPhoneNumber)).getText(), branchModel.getAlertNotificationPhoneNumber()+"1");
-		
-	}
-	
-	/*
-	 *  get created branch 
-	 */
 	public String getCreatedBranchOnBranchPage()
 	{
-		return branchListFirstEntryName.getText();
+		return createdBranch.getText();
 	}
 	
-	/*
-	 * search created branch on branch page
-	 */
 	public void searchCreatedBranchOnBranchPage(String branchName)
 	{
 	  clickOn(branchListFilterInput);
@@ -287,24 +165,26 @@ public class BranchPage extends BasePage {
 	  
 	}
 	
-    /*
-     * click on created branch
-     */
+
 	public void clickOnSearchedBranchOnBranchPage()
 	{
 	  clickOn(branchListFirstEntryHyperlink);
 	  _waitForJStoLoad();
 	}
 	
-	/*
-	 * click on edit branch button on branch page
-	 */
 	public void clickOnEditBranchOnBranchPage()
 	{
 	  clickOn(editBranchBtn);
 	  _waitForJStoLoad();
 	}
 	
+	/*
+	 * verify newly created branch on branch page
+	 */
+	public void verifyNewlyCreatedBranch(BranchModel branchModel)
+	{
+		Assert.assertEquals(createdBranch.getText(), branchModel.getName());
+	}
 	
 	/*
 	 * create a device with its details
@@ -324,13 +204,13 @@ public class BranchPage extends BasePage {
 		clickOn(primaryTelephoneInput);
 		Assert.assertEquals(primaryTelephoneInput.getAttribute("readonly"),null);
 		primaryTelephoneInput.clear();
-		inputText(primaryTelephoneInput, branchModel.getPrimaryTelephone()+"1");
+		inputText(primaryTelephoneInput, branchModel.getPrimaryTelephone());
 		
 		waitForElement(secondaryTelephoneInput);
 		Assert.assertEquals(secondaryTelephoneInput.getAttribute("readonly"),null);
 		clickOn(secondaryTelephoneInput);
 		secondaryTelephoneInput.clear();
-		inputText(secondaryTelephoneInput, branchModel.getSecondaryTelePhone()+"1");
+		inputText(secondaryTelephoneInput, branchModel.getSecondaryTelePhone());
 		
 		waitForElement(addressLine1Input);
 		clickOn(addressLine1Input);
@@ -348,44 +228,44 @@ public class BranchPage extends BasePage {
 		clickOn(cityInput);
 		Assert.assertEquals(cityInput.getAttribute("readonly"),null);
 		cityInput.clear();
-		inputText(cityInput, branchModel.getCity()+"A");
+		inputText(cityInput, branchModel.getCity());
 		
 		waitForElement(countyInput);
 		clickOn(countyInput);
 		Assert.assertEquals(countyInput.getAttribute("readonly"),null);
 		countyInput.clear();
-		inputText(countyInput, branchModel.getCounty()+"A");
+		inputText(countyInput, branchModel.getCounty());
 		
 		waitForElement(countryInput);
 		clickOn(countryInput);
 		Assert.assertEquals(countryInput.getAttribute("readonly"),null);
 		countryInput.clear();
-		inputText(countryInput, branchModel.getCountry()+"A");
+		inputText(countryInput, branchModel.getCountry());
 		
 		waitForElement(postcodeInput);
 		clickOn(postcodeInput);
 		Assert.assertEquals(postcodeInput.getAttribute("readonly"),null);
 		postcodeInput.clear();
-		inputText(postcodeInput, branchModel.getPostcode()+"a");
+		inputText(postcodeInput, branchModel.getPostcode());
 		
 		waitForElement(faxInput);
 		clickOn(faxInput);
 		Assert.assertEquals(faxInput.getAttribute("readonly"),null);
 		faxInput.clear();
-		inputText(faxInput, branchModel.getFax()+"1");
+		inputText(faxInput, branchModel.getFax());
 		
 		
 		waitForElement(alertNotificationEmailInput);
 		clickOn(alertNotificationEmailInput);
 		Assert.assertEquals(alertNotificationEmailInput.getAttribute("readonly"),null);
 		alertNotificationEmailInput.clear();
-		inputText(alertNotificationEmailInput, branchModel.getAlertNotificationEmail()+"A");
+		inputText(alertNotificationEmailInput, branchModel.getAlertNotificationEmail());
 		
 		waitForElement(alertNotificationPhoneNumberInput);
 		clickOn(alertNotificationPhoneNumberInput);
 		Assert.assertEquals(alertNotificationPhoneNumberInput.getAttribute("readonly"),null);
 		alertNotificationPhoneNumberInput.clear();
-		inputText(alertNotificationPhoneNumberInput, branchModel.getAlertNotificationPhoneNumber()+"1");
+		inputText(alertNotificationPhoneNumberInput, branchModel.getAlertNotificationPhoneNumber());
 		
 		waitForElement(updateBranchBtn);
 		clickOn(updateBranchBtn);

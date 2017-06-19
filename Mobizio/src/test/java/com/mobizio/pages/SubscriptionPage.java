@@ -6,7 +6,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.testng.Assert;
 
-import com.mobizio.constant.GlobalConstant.FileNames;
+import com.mobizio.constant.GlobalConstants.Constant;
 
 import com.mobizio.datamodel.UserModel;
 import com.mobizio.selenium.framework.BasePage;
@@ -49,7 +49,7 @@ public class SubscriptionPage extends BasePage{
 	{
 		_waitForJStoLoad();
 		String subscriptionPageText=subscription.getText();
-		Assert.assertEquals(FileNames.Subscriptions.toString(), subscriptionPageText);
+		Assert.assertEquals(Constant.Subscriptions.toString(), subscriptionPageText);
 	}
 	
 	/*

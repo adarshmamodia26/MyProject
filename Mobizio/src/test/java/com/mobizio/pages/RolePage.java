@@ -8,25 +8,32 @@ import org.openqa.selenium.support.FindBy;
 import org.testng.Assert;
 
 
+
+
+import com.mobizio.constant.GlobalConstants.Constant;
+
 import com.mobizio.datamodel.RoleModel;
 import com.mobizio.selenium.framework.BasePage;
 
 public class RolePage extends BasePage {
 
-	@FindBy(xpath = "//*[@id='addNewServiceRoleBtn']")
-	private WebElement newRole;
+	@FindBy(xpath = "//a[@id='addNewServiceRoleBtn']")
+	private WebElement newRoleBtn;
 	
-	@FindBy(xpath = "//*[@id='serviceRoleName']")
-	private WebElement roleName;
+	@FindBy(xpath = "//span[text()='New Service Role']")
+	private WebElement newServiceRolePage;
 	
-	@FindBy(xpath = "//*[@id='s2id_autogen1']")
+	@FindBy(xpath = "//input[@id='serviceRoleName']")
+	private WebElement roleNameField;
+	
+	@FindBy(xpath = "//input[@id='s2id_autogen1']")
 	private WebElement usersTextBox;
 	
 	@FindBy(xpath = "//*[@class='select2-match']")
 	private WebElement searchedText;
 	
-	@FindBy(xpath = "//*[@id='serviceRoleDescription']")
-	private WebElement description;
+	@FindBy(xpath = "//textarea[@id='serviceRoleDescription']")
+	private WebElement descriptionField;
 	
 	@FindBy(xpath = "//*[@id='rbacMatrix']/thead/tr[2]/th[1]/div/ins")
 	private WebElement create;
@@ -55,6 +62,9 @@ public class RolePage extends BasePage {
 	@FindBy(xpath = "//*[@id='serviceRolesTable']/tbody/tr[1]/td[1]")
 	private WebElement role;
 	
+	@FindBy(xpath = "//span[text()='Roles']")
+	private WebElement rolesPage;
+	
 	private String createRole="//*[@id='addNewServiceRoleBtn']";
 	
 	public RolePage(WebDriver driver) {
@@ -65,24 +75,39 @@ public class RolePage extends BasePage {
 	 * click on add new branch button
 	 */
 	public void clickOnNewRole() {
-		waitForElement(newRole);
-		clickOn(newRole);
+		clickOn(newRoleBtn);
 		_waitForJStoLoad();
 	}
 	
 	/*
-	 * enter a role name
+	 * verify roles page
 	 */
-	public void enterRoleDetails(RoleModel roleModel) throws InterruptedException {
-		waitForElement(roleName);
-		clickOn(roleName);
-		inputText(roleName,roleModel.getName());
+	public void verifyRolesPage()
+	{
+		waitForElement(rolesPage);
+		Assert.assertEquals(rolesPage.getText(), Constant.RolesPage.toString());
+	}
+	
+	/*
+	 * verify new service roles page
+	 */
+	public void verifyNewServiceRolePage()
+	{
+		waitForElement(newServiceRolePage);
+		Assert.assertEquals(newServiceRolePage.getText(), Constant.NewServiceRolePage.toString());
+	}
+	
+	/*
+	 * enter a new role details
+	 */
+	public void enterRoleDetails(RoleModel roleModel){
 		
-		waitForElement(description);
-		clickOn(description);
-		inputText(description,roleModel.getDescription());
+		clickOn(roleNameField);
+		inputText(roleNameField,roleModel.getName());
 		
-		waitForElement(usersTextBox);
+		clickOn(descriptionField);
+		inputText(descriptionField,roleModel.getDescription());
+		
 		clickOn(usersTextBox);
 		inputText(usersTextBox,roleModel.getUser());
 		waitForElement(searchedText);
@@ -105,7 +130,7 @@ public class RolePage extends BasePage {
 	/*
 	 * verify that new role has been created
 	 */
-	public void verifyNewRole(RoleModel roleModel) throws InterruptedException {
+	public void verifyNewRole(RoleModel roleModel){
 		waitForElement(search);
 		clickOn(search);
 		inputText(search,roleModel.getName());

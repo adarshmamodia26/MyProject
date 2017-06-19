@@ -4,7 +4,7 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Factory;
 import org.testng.annotations.Test;
 
-import com.mobizio.constant.GlobalConstant.FileNames;
+import com.mobizio.constant.FileName.FileNames;
 import com.mobizio.datamodel.BranchModel;
 import com.mobizio.dataproviders.DataProviders;
 import com.mobizio.selenium.framework.BaseTest;
@@ -40,10 +40,12 @@ public class EditBranchWithAllDetails extends BaseTest {
 		branchModel.setFax(propertyReader.readApplicationData("fax"));
 		branchModel.setAlertNotificationEmail(propertyReader.readApplicationData("alertNotificationEmail"));
 		branchModel.setAlertNotificationPhoneNumber(propertyReader.readApplicationData("alertNotificationPhoneNumber"));
+		userName = Configuration.readApplicationFile("Tenant_Username");
+		password = Configuration.readApplicationFile("Tenant_Password");
 	}
 	
 	@Test (description = "create new branch with all fields")
-	public void editNewBranchWithAllDetails() throws Exception 
+	public void editBranchWithAllDetails() throws Exception 
 	{
 		reportLog("Login with user name "+userName+" and password " +password);
 		dashBoardPage = loginPage.login(userName, password);
@@ -60,43 +62,40 @@ public class EditBranchWithAllDetails extends BaseTest {
 		reportLog("Click on Branches");
 		branchPage=dashBoardPage.clickOnBranch();
 		
+		reportLog("verify branch page");
+		branchPage.verifyBranchPage();
+		
 		reportLog("Click on NewBranch Button");
-		branchPage.clickOnNewBranch();
+		branchPage.clickOnNewBranchButton();
 		
 		reportLog("enter new branch details");
 		branchPage.enterNewBranchDetail(branchModel);
 		
-		reportLog("verify new branch");
-		branchPage.verifyCreatedBranchOnBranchPage(branchModel.getName());
+		reportLog("click on create button");
+		branchPage.clickOnCreateButton();
 		
-		reportLog("get branch name");
-		branchname=branchPage.getCreatedBranchOnBranchPage();
-		
-		reportLog("search branch name");
-		branchPage.searchCreatedBranchOnBranchPage(branchname);
-		
-		reportLog("click on searched branch name");
-		branchPage.clickOnSearchedBranchOnBranchPage();
-		
-		reportLog("click on edit button");
-		branchPage.clickOnEditBranchOnBranchPage();
-		
-		reportLog("edit all the details");
-		branchPage.editNewBranchDetail(branchModel);
-		
-		reportLog("search new branch");
-		branchPage.searchCreatedBranchOnBranchPage(branchname);
-		
-		reportLog("click on searched branch");
-		branchPage.clickOnSearchedBranchOnBranchPage();
-		
-		reportLog("verify branch detail on branch page");
-		branchPage.verifyEditedBranchDetailsOnBranchPage(branchModel);
-		
-		reportLog("Logout from application");		
-		loginPage = dashBoardPage.logOut();
-		
-		reportLog("verify logout successfully");
-		loginPage.verifyLoginPage();
+		reportLog("verify newly created branch");
+		branchPage.verifyNewlyCreatedBranch(branchModel);
+	
+//		reportLog("get branch name");
+//		branchname=branchPage.getCreatedBranchOnBranchPage();
+//		
+//		reportLog("search branch name");
+//		branchPage.searchCreatedBranchOnBranchPage(branchname);
+//		
+//		reportLog("click on searched branch name");
+//		branchPage.clickOnSearchedBranchOnBranchPage();
+//		
+//		reportLog("click on edit button");
+//		branchPage.clickOnEditBranchOnBranchPage();
+//		
+//		reportLog("edit all the details");
+//		branchPage.editNewBranchDetail(branchModel);
+//		
+//		reportLog("Logout from application");		
+//		loginPage = dashBoardPage.logOut();
+//		
+//		reportLog("verify logout successfully");
+//		loginPage.verifyLoginPage();
 	}
 }

@@ -57,14 +57,9 @@ public abstract class BasePage {
 	/*
 	 * Click action performed and then wait 
 	 */
-	public void waitAndClick(WebElement element) {
-		logger.info("Wait and Click");
-		waitForElement(element);
-		element.click();
-	}
-
 	public void clickOn(WebElement element) {
-		logger.info("click");		
+		logger.info("click");
+		waitForElement(element);
 		element.click();
 	}
 	

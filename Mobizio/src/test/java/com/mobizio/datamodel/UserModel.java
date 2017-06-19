@@ -24,6 +24,7 @@ public class UserModel {
 	private String secondaryTelephone;
 	private String branch;
 	private String userType;
+	private String pin;
 	
 	public String getUserType() {
 		return userType;
@@ -31,6 +32,14 @@ public class UserModel {
 	public String setUserType(String userType) {
 		this.userType = userType;
 		return userType;
+	}
+	
+	public String getPin() {
+		return pin;
+	}
+	public String setPin(String pin) {
+		this.pin = pin;
+		return pin;
 	}
 	
 	public String getTenantUserId() {

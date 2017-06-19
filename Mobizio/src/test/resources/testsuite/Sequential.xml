@@ -7,9 +7,13 @@
 		<listener class-name="org.uncommons.reportng.JUnitXMLReporter" />		
 	</listeners>
 
-	<test name="Automation" preserve-order="true" verbose="2">
+	<test name="Login Logout" preserve-order="true" verbose="2">
 		<classes>
-			<class name="BranchManagement.VerifyThatTenantAdminRedirectToBranchAdminPageAfterCreateNewBranch" />
+			
+			<class name="CustomerManagement.CreateNewCustomerWithAllDetails" />
+		    <class name="UserManagement.CreateNewUserWithAllDetails"></class>
+					
+			
 		</classes>
 	</test>
 

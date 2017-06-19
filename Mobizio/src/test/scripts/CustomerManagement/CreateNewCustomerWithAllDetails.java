@@ -4,7 +4,7 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Factory;
 import org.testng.annotations.Test;
 
-import com.mobizio.constant.GlobalConstant.FileNames;
+import com.mobizio.constant.FileName.FileNames;
 import com.mobizio.datamodel.CustomerModel;
 import com.mobizio.dataproviders.DataProviders;
 import com.mobizio.selenium.framework.BaseTest;
@@ -49,6 +49,7 @@ public class CreateNewCustomerWithAllDetails extends BaseTest {
 		customerModel.setLikesToBeCalled(propertyReader.readApplicationData("likesToBeCalled"));
 		customerModel.setNfcTagContent(propertyReader.readApplicationData("nfcTagContent"));
 		customerModel.setCity(propertyReader.readApplicationData("city"));
+		customerModel.setRelationship(propertyReader.readApplicationData("relationship"));
 	}
 	
 	@Test (description = "create new customer with all fields")
@@ -86,6 +87,9 @@ public class CreateNewCustomerWithAllDetails extends BaseTest {
 		
 		reportLog("verify newly created customer on customer page ");
 		customerPage.verifyCreatedCustomerOnCustomerPage(customerModel.getUserName());
+		
+		reportLog("add relation between customer and other user");
+		customerPage.addRelation(customerModel);
 		
 		reportLog("Logout from application");		
 		loginPage = dashBoardPage.logOut();
